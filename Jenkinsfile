@@ -1,9 +1,13 @@
 pipeline {
-    agent any 
+   agent {
+        docker {
+            image 'maven:3-alpine' 
+        }
+    }
     stages {
         stage('Build') { 
             steps {
-                sh 'java -version'
+                sh 'mvn clean install'
             }
         }
         stage('Test') { 
@@ -13,7 +17,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo "deplloy"
+                echo "deploy"
             }
         }
     }
