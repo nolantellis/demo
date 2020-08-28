@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo "deploy"
+                echo "$BRANCH_NAME"
             }
         }
     }
